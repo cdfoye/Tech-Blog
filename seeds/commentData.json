@@ -1,0 +1,12 @@
+[
+  {
+    "comment": "JS is my life",
+    "post_id": 1,
+    "user_id": 2
+  },
+  {
+    "comment": "No way dude, MySQL is where it's at",
+    "post_id": 1,
+    "user_id": 3
+  }
+]
