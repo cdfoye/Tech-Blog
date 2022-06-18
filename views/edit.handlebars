@@ -1,0 +1,22 @@
+{{! Renders the edit layout to edit the content of a logged in user's post }}
+<div class='container fade-main d-flex justify-content-center my-4'>
+  <div class='col-md-6 mx-3 mb-5 px-3'>
+    <h2 class='text-center'>Edit Your Post</h2>
+    <br />
+    <form class='form edit-post-form' id='edit-content' data-id='{{id}}'>
+      <div class='form-group mb-3 text-center'>
+        <textarea
+          class='form-control'
+          id='post-content'
+          name='post-content'
+          rows='5'
+        >{{content}}</textarea>
+      </div>
+      <div class='form-group text-center'>
+        <button type='submit' class='btn btn-dark'>Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src='/js/edit.js'></script>

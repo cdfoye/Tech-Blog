@@ -1,8 +1,20 @@
 [
   {
-    "title": "JavaScript",
-    "description": "JS is fun",
-    "content": "JavaScript is cool yo",
+    "title": "Tech Blog",
+    "description": "Welcome to the blog!",
+    "content": "A blog site where developers can publish their blog posts and comment on other developers’ posts as well.",
     "user_id": 1
+  },
+  {
+    "title": "MVC Importance",
+    "description": "Why MVC is so important",
+    "content": "MVC allows developers to maintain a true separation of concerns, devising their code between the Model layer for data, the View layer for design, and the Controller layer for application logic.",
+    "user_id": 2
+  },
+  {
+    "title": "Authentication vs Authorization",
+    "description": "What's the difference?",
+    "content": "There is a difference between authentication and authorization. Authentication means confirming your own identity, whereas authorization means being allowed access to the system.",
+    "user_id": 3
   }
 ]

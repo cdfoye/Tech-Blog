@@ -1,14 +1,65 @@
-<div class="text-center">
-  <h2>{{name}}</h2>
-  <p>{{{get_emoji}}}</p>
-  <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>
-    <span for="img" aria-label="money">💲</span>
-    <span class="dollar-amount">{{format_amount needed_funding}}</span>
-    needed
-  </p>
-  <p>
-    <button class="btn btn-primary">Fund this Project!</button>
-  </p>
+{{! Renders the post a user clicks on in a new page and allows the user to comment and view comments }}
+<div class='container'>
+  <!-- Content here -->
+  <div>
+    <div class='card my-4'>
+      <div class='card-header'>
+        <h2 class='post-title text-dark'>{{title}}</h2>
+      </div>
+      <div class='card-body'>
+        <p class='post-meta text-muted'>
+          Posted by
+          <span class='user'>{{user.name}}</span>
+          on
+          <span class='date'>{{format_date date_created}}</span>
+        </p>
+        <p class='card-text'>{{content}}</p>
+        <p>
+          <a
+            class='btn btn-dark'
+            data-bs-toggle='collapse'
+            href='#collapseExample'
+            role='button'
+            aria-expanded='false'
+            aria-controls='collapseExample'
+          >
+            Comments
+          </a>
+        </p>
+        <div class='collapse' id='collapseExample'>
+          <div class='card card-body'>
+            {{#each comments as |comment|}}
+              <div class='card my-2'>
+                <div class='card-body'>
+                  <p>
+                    {{comment.comment}}
+                  </p>
+                  <p class='post-meta text-secondary fst-italic'>
+                    Posted by
+                    <span class='user'>{{comment.user.name}}</span>
+                    on
+                    <span class='date'>{{format_date date_created}}</span>
+                  </p>
+                </div>
+              </div>
+            {{/each}}
+
+            {{#if logged_in}}
+              <form class='form new-comment-form' data-id='{{id}}'>
+                <div class='mb-3'>
+                  <label for='comment-content' class='form-label'>Write a
+                    Comment...</label>
+                  <input class='form-control' id='comment-content' />
+                </div>
+                <button type='submit' class='btn btn-primary'>Submit</button>
+              </form>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+{{! comment.js script for button events }}
+<script src='/js/comment.js'></script>

@@ -1,7 +1,10 @@
 const editFormHandler = async (event) => {
   event.preventDefault();
-  const postId = document.querySelector('#edit').getAttribute('data-id');
-  const content = document.querySelector('#content').value.trim();
+  const postId = document
+    .querySelector('#edit-content')
+    .getAttribute('data-id');
+  console.log(postId);
+  const content = document.querySelector('#post-content').value.trim();
 
   if (content) {
     const response = await fetch(`/api/posts/${postId}`, {
