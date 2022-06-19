@@ -6,7 +6,7 @@ const withAuth = require('../../utils/auth');
 router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll({
-      order: [['date_created', 'DESC']],
+      order: [['date_created', 'ASC']],
     });
 
     res.status(200).json(postData);
@@ -44,7 +44,7 @@ router.put('/:id', withAuth, async (req, res) => {
     );
 
     if (!postData) {
-      res.status(404).json({ message: 'No post with this id' });
+      res.status(404).json({ message: 'No post found with this id' });
       return;
     }
 
@@ -65,7 +65,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     });
 
     if (!postData) {
-      res.status(404).json({ message: 'No post with this id' });
+      res.status(404).json({ message: 'No post found with this id' });
       return;
     }
 
